@@ -1,5 +1,12 @@
 function generatePassword() {
-    const length = parseInt(document.getElementById('length').value, 10);
+    const length = document.getElementById('length').value;
+
+    // Verificar se o número de caracteres é maior que 25
+    if (length > 25) {
+        alert('A senha só pode ter até 25 caracteres.');
+        return; // Não prosseguir com a geração da senha
+    }
+
     const uppercase = document.getElementById('uppercase').checked;
     const special = document.getElementById('special').checked;
     const noRepeat = document.getElementById('no-repeat').checked;
@@ -9,10 +16,7 @@ function generatePassword() {
         return;
     }
 
-    const baseCharacters = 'abcdefghijklmnopqrstuvwxyz';
-    const specialCharacters = '!@#$%^&*()_+[]{}|;:,.<>?';
-    let characters = baseCharacters + baseCharacters.toUpperCase();
-
+    let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     if (noRepeat && length > characters.length) {
         alert('A quantidade de caracteres não pode ser maior que o número possível de caracteres únicos.');
         return;
@@ -21,7 +25,6 @@ function generatePassword() {
     let password = '';
     const usedChars = new Set();
 
-    // Gera a senha inicial com ou sem repetição de caracteres
     for (let i = 0; i < length; i++) {
         let randomChar;
         do {
@@ -32,38 +35,15 @@ function generatePassword() {
         password += randomChar;
     }
 
-    // Ajusta a primeira letra maiúscula, se necessário
-    if (uppercase) {
-        password = password.charAt(0).toUpperCase() + password.slice(1).toLowerCase();
-    }
-
-    // Ajusta o último caractere para ser especial, se necessário
     if (special) {
-        const randomSpecialChar = specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
-        password = password.slice(0, -1) + randomSpecialChar;
+        password = password.slice(0, -1) + '!'; // Adicionar um caractere especial no final
+    }
+    if (uppercase) {
+        password = password.charAt(0).toUpperCase() + password.slice(1).toLowerCase(); // Apenas a primeira letra maiúscula
     }
 
-    // Exibe a senha gerada
-    const passwordOutput = document.getElementById('passwordOutput');
-    passwordOutput.textContent = password;
-    passwordOutput.style.display = 'block'; // Mostra a caixa de senha
-
-    // Exibe os botões
-    document.getElementById('actions').style.display = 'block';
-}
-
-function copyPassword() {
-    const password = document.getElementById('passwordOutput').textContent;
-    navigator.clipboard.writeText(password).then(() => {
-        alert('Senha copiada para a área de transferência!');
-    }).catch(() => {
-        alert('Falha ao copiar a senha.');
-    });
-}
-
-function clearPassword() {
-    // Limpa a saída e oculta os elementos
-    document.getElementById('passwordOutput').textContent = '';
-    document.getElementById('passwordOutput').style.display = 'none';
-    document.getElementById('actions').style.display = 'none';
+    document.getElementById('passwordOutput').textContent = password;
+    document.getElementById('passwordOutput').style.display = 'block';
+    document.getElementById('copyButton').style.display = 'inline-block';
+    document.getElementById('clearButton').style.display = 'inline-block';
 }
