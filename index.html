@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Senhas</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+            justify-content: space-between; /* Garante que o conteúdo principal e o rodapé fiquem no topo e no final */
+        }
+
+        .container {
+            width: 400px;
+            height: 450px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding: 10px;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,16 +56,27 @@
             <label><input type="checkbox" id="uppercase" checked> Primeira letra maiúscula</label>
             <label><input type="checkbox" id="special" checked> Incluir caractere especial</label>
             <label><input type="checkbox" id="no-repeat" checked> Não repetir caracteres</label>
+            <label><input type="checkbox" id="useReference"> Usar Referência</label>
+        </div>
+
+        <div style="margin-bottom: 20px; display: none;" id="referenceWrapper">
+            <label for="reference">Referência:</label>
+            <input type="text" id="reference" placeholder="Digite um texto de referência" disabled>
         </div>
 
         <button onclick="generatePassword()">Gerar Senha</button>
 
-        <div class="output" id="passwordOutput" style="display: none;"></div>
-        <div class="actions">
-            <button id="copyButton" style="display: none;" onclick="copyPassword()">Copiar</button>
-            <button id="clearButton" style="display: none;" onclick="clearPassword()">Limpar</button>
+        <div class="output" id="passwordOutput"></div>
+        <div class="actions" id="actions">
+            <button onclick="copyPassword()">Copiar</button>
+            <button onclick="clearPassword()">Limpar</button>
         </div>
     </div>
+
+    <footer>
+        <p>Esta é uma página de testes para fins de estudo, criada com ajuda de Inteligência Artificial.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

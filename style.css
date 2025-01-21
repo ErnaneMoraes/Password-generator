@@ -11,7 +11,7 @@ body {
 
 .container {
     width: 400px; /* Largura fixa */
-    height: 400px; /* Altura fixa */
+    height: 450px; /* Altura fixa */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
