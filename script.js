@@ -36,7 +36,7 @@ function generatePassword() {
     }
 
     if (special) {
-        password = password.slice(0, -1) + '!'; // Adicionar um caractere especial no final
+        password = password.slice(0, -1) + '!'; // Adicionar caractere especial no final
     }
     if (uppercase) {
         password = password.charAt(0).toUpperCase() + password.slice(1).toLowerCase(); // Apenas a primeira letra maiúscula
@@ -46,4 +46,20 @@ function generatePassword() {
     document.getElementById('passwordOutput').style.display = 'block';
     document.getElementById('copyButton').style.display = 'inline-block';
     document.getElementById('clearButton').style.display = 'inline-block';
+}
+
+function copyPassword() {
+    const password = document.getElementById('passwordOutput').textContent;
+    if (!password) return;
+
+    navigator.clipboard.writeText(password)
+        .then(() => alert('Senha copiada para a área de transferência!'))
+        .catch(() => alert('Erro ao copiar a senha.'));
+}
+
+function clearPassword() {
+    document.getElementById('passwordOutput').textContent = '';
+    document.getElementById('passwordOutput').style.display = 'none';
+    document.getElementById('copyButton').style.display = 'none';
+    document.getElementById('clearButton').style.display = 'none';
 }

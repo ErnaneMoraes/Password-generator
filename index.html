@@ -22,10 +22,10 @@
 
         <button onclick="generatePassword()">Gerar Senha</button>
 
-        <div class="output" id="passwordOutput"></div>
-        <div class="actions" id="actions">
-            <button onclick="copyPassword()">Copiar</button>
-            <button onclick="clearPassword()">Limpar</button>
+        <div class="output" id="passwordOutput" style="display: none;"></div>
+        <div class="actions">
+            <button id="copyButton" style="display: none;" onclick="copyPassword()">Copiar</button>
+            <button id="clearButton" style="display: none;" onclick="clearPassword()">Limpar</button>
         </div>
     </div>
     <script src="script.js"></script>
