@@ -11,13 +11,13 @@
         <h1>Gerador de Senhas</h1>
         <div style="margin-bottom: 20px;">
             <label for="length">Quantidade de caracteres:</label>
-            <input type="number" id="length" min="1" max="2" placeholder="Ex: 12" required>
+            <input type="number" id="length" min="1" max="25" placeholder="" value="10" required>
         </div>
 
         <div class="options">
-            <label><input type="checkbox" id="uppercase"> Primeira letra maiúscula</label>
-            <label><input type="checkbox" id="special"> Incluir caractere especial</label>
-            <label><input type="checkbox" id="no-repeat"> Não repetir caracteres</label>
+            <label><input type="checkbox" id="uppercase" checked> Primeira letra maiúscula</label>
+            <label><input type="checkbox" id="special" checked> Incluir caractere especial</label>
+            <label><input type="checkbox" id="no-repeat" checked> Não repetir caracteres</label>
         </div>
 
         <button onclick="generatePassword()">Gerar Senha</button>
