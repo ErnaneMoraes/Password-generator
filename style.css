@@ -80,3 +80,15 @@ button:hover {
     background-color: #007BFF;
     color: #fff;
 }
+
+.footer {
+    background-color: #007BFF;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px; /* ajuste a altura conforme necessário */
+    color: white; /* cor do texto */
+}
