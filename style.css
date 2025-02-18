@@ -1,4 +1,6 @@
+
 body {
+    display: flex;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
@@ -17,6 +19,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
 }
 
 h1 {
@@ -59,40 +62,6 @@ button:hover {
     text-align: center;
 }
 
-#actions {
-    display: none; /* Oculta os botões inicialmente */
-    margin-top: 10px;
-}
-
-#actions button {
-    margin-right: 10px;
-    padding: 5px 15px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid #007BFF;
-    background-color: #f0f8ff;
-    color: #007BFF;
-    font-weight: bold;
-}
-
-#actions button:hover {
-    background-color: #007BFF;
-    color: #fff;
-}
-
-.footer {
-    background-color: #fff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20px; /* ajuste a altura conforme necessário */
-    color: rgb(104, 104, 104); /* cor do texto */
-}
-
 .output {
     display: none;
     margin: 20px auto; /* Centraliza horizontalmente */
@@ -103,4 +72,43 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+    display: flex;              
+    justify-content: center;     
+    align-items: center;         
+    gap: 10px;                   
+    width: 100%;                 
+    position: absolute;          
+    bottom: 25px;                  
+    left: 50%;                   
+    transform: translateX(-50%); 
+}
+
+.footer {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    color: rgb(104, 104, 104);
+    overflow: hidden; /* Impede que o texto ultrapasse os limites da div */
+}
+
+.footer-text {
+    white-space: nowrap; /* Impede que o texto quebre e fique em várias linhas */
+    animation: scroll-text 20s linear infinite alternate; /* Define a animação */
+}
+
+@keyframes scroll-text {
+    from {
+        transform: translateX(100%); /* Começa à direita da tela */
+    }
+    to {
+        transform: translateX(-100%); /* Vai até a esquerda da tela */
+    }
 }
