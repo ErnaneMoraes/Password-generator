@@ -82,7 +82,7 @@ button:hover {
 }
 
 .footer {
-    background-color: #007BFF;
+    background-color: #fff;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -90,5 +90,17 @@ button:hover {
     justify-content: center;
     align-items: center;
     height: 20px; /* ajuste a altura conforme necessário */
-    color: white; /* cor do texto */
+    color: rgb(104, 104, 104); /* cor do texto */
+}
+
+.output {
+    display: none;
+    margin: 20px auto; /* Centraliza horizontalmente */
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    width: 80%; /* Ajuste a largura conforme necessário */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

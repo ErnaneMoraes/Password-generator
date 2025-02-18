@@ -42,14 +42,16 @@ function generatePassword() {
         password = password.charAt(0).toUpperCase() + password.slice(1).toLowerCase(); // Apenas a primeira letra maiúscula
     }
 
-    document.getElementById('passwordOutput').textContent = password;
-    document.getElementById('passwordOutput').style.display = 'block';
+    const passwordOutput = document.getElementById('passwordOutput');
+    passwordOutput.value = password; // Define o valor no campo de entrada
+    passwordOutput.style.display = 'block';
     document.getElementById('copyButton').style.display = 'inline-block';
     document.getElementById('clearButton').style.display = 'inline-block';
 }
 
 function copyPassword() {
-    const password = document.getElementById('passwordOutput').textContent;
+    const passwordOutput = document.getElementById('passwordOutput');
+    const password = passwordOutput.value; // Pega o valor do campo de entrada
     if (!password) return;
 
     navigator.clipboard.writeText(password)
@@ -58,8 +60,9 @@ function copyPassword() {
 }
 
 function clearPassword() {
-    document.getElementById('passwordOutput').textContent = '';
-    document.getElementById('passwordOutput').style.display = 'none';
+    const passwordOutput = document.getElementById('passwordOutput');
+    passwordOutput.value = ''; // Limpa o valor do campo de entrada
+    passwordOutput.style.display = 'none';
     document.getElementById('copyButton').style.display = 'none';
     document.getElementById('clearButton').style.display = 'none';
 }
